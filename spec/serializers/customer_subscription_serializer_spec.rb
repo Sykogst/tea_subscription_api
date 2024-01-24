@@ -11,7 +11,7 @@ RSpec.describe CustomerSubscriptionSerializer, type: :serializer do
       }
       headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
   
-      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_payload)
+      post '/api/v0/customer_subscriptions', headers: headers, params: JSON.generate(customer_subscription: customer_subscription_payload)
       created_customer_subscription = CustomerSubscription.last
       serialized_data = CustomerSubscriptionSerializer.new(created_customer_subscription)
 

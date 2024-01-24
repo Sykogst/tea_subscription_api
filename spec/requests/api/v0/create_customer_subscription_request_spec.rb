@@ -11,7 +11,7 @@ describe 'Create Customer Subscription Endpoint', type: :request do
       }
       headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
   
-      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_payload)
+      post '/api/v0/customer_subscriptions', headers: headers, params: JSON.generate(customer_subscription: customer_subscription_payload)
       created_customer_subscription = CustomerSubscription.last
   
       expect(response).to be_successful
