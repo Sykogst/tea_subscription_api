@@ -113,9 +113,10 @@ To get a local copy up and running follow these simple example steps.
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Endpoint to subscribe a customer to a tea subscription
-    - [ ] `POST /subscriptions`
-    - [ ] Create a new subscription for a specified customer, including a selected tea
+- [x] Endpoint to subscribe a customer to a tea subscription
+    - [x] `POST /subscriptions`
+    - [x] Create a new subscription for a specified customer, including a selected tea
+    - [x] `400`, `404`, `422` error handling
 - [ ] Endpoint to cancel a customer's tea subscription
     - [ ] `DELETE /subscriptions/:id`
     - [ ] Remove a specified subscription
@@ -136,7 +137,7 @@ To get a local copy up and running follow these simple example steps.
 ## Endpoints
 
 ### Subscribe a Customer to a Tea Subscription
-* **POST api/v0/subscriptions**
+* **`POST api/v0/subscriptions`**
   - Example Request:
     ```
     POST /api/v0/subscriptions
@@ -144,12 +145,43 @@ To get a local copy up and running follow these simple example steps.
     Accept: application/json
 
     {
-     BODY PARAMS TO CREATE A SUBSCRIPTION
+        "customer_id": 1,
+        "subscription_id": 1
     }
     ```
   - Example Response:
     ```json
+    {
+        "data": {
+            "id": "1",
+            "type": "customer_subscription",
+            "attributes": {
+                "customer_id": 1,
+                "subscription_id": 1
+            },
+            "relationships": {
+                "customer": {
+                    "data": {
+                        "id": "1",
+                        "type": "customer"
+                    }
+                },
+                "subscription": {
+                    "data": {
+                        "id": "1",
+                        "type": "subscription"
+                    }
+                }
+            }
+        }
+    }
     ```
+  - Error Handling
+  1. `404` Invalid Customer ID
+  2. `404` Invalid Subscription ID
+  3. `400` Blank/Null Customer ID
+  4. `400` Blank/Null Subscription ID
+  5. `422` Customer Subscription Already Exists
 
 ### Cancel a Customer's Tea Subscription
 * **DELETE /api/v0/subscriptions/:id**
