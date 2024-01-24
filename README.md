@@ -175,6 +175,12 @@ To get a local copy up and running follow these simple example steps.
         }
     }
     ```
+  - Error Handling
+  1. `404` Invalid Customer ID
+  2. `404` Invalid Subscription ID
+  3. `400` Blank/Null Customer ID
+  4. `400` Blank/Null Subscription ID
+  5. `422` Customer Subscription Already Exists
 
 ### Cancel a Customer's Tea Subscription
 * **DELETE /api/v0/subscriptions/:id**
