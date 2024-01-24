@@ -136,7 +136,7 @@ To get a local copy up and running follow these simple example steps.
 ## Endpoints
 
 ### Subscribe a Customer to a Tea Subscription
-* **POST api/v0/subscriptions**
+* **`POST api/v0/subscriptions`**
   - Example Request:
     ```
     POST /api/v0/subscriptions
@@ -144,11 +144,36 @@ To get a local copy up and running follow these simple example steps.
     Accept: application/json
 
     {
-     BODY PARAMS TO CREATE A SUBSCRIPTION
+        "customer_id": 1,
+        "subscription_id": 1
     }
     ```
   - Example Response:
     ```json
+    {
+        "data": {
+            "id": "1",
+            "type": "customer_subscription",
+            "attributes": {
+                "customer_id": 1,
+                "subscription_id": 1
+            },
+            "relationships": {
+                "customer": {
+                    "data": {
+                        "id": "1",
+                        "type": "customer"
+                    }
+                },
+                "subscription": {
+                    "data": {
+                        "id": "1",
+                        "type": "subscription"
+                    }
+                }
+            }
+        }
+    }
     ```
 
 ### Cancel a Customer's Tea Subscription
