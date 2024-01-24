@@ -8,6 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# Destroy
+Tea.destroy_all
+Customer.destroy_all
+Subscription.destroy_all
+CustomerSubscription.destroy_all
 
 # Seed data for teas
 tea1 = FactoryBot.create(:tea, title: 'Green Tea', description: 'Fresh and aromatic green tea.', temperature: 75.0, brew_time: '3:00')
