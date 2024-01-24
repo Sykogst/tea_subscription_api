@@ -99,6 +99,8 @@ To get a local copy up and running follow these simple example steps.
 ## Schema
 ![Schema Image](images/schema.png)
 
+![DB Diagram](images/dbdiagram.png)
+
 ### Design Decisions
 - Subscriptions-Teas, one-to-one relationship over-one-to many
 	1. Simplicity and intuitive
