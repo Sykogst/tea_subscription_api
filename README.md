@@ -113,9 +113,10 @@ To get a local copy up and running follow these simple example steps.
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Endpoint to subscribe a customer to a tea subscription
-    - [ ] `POST /subscriptions`
-    - [ ] Create a new subscription for a specified customer, including a selected tea
+- [x] Endpoint to subscribe a customer to a tea subscription
+    - [x] `POST /subscriptions`
+    - [x] Create a new subscription for a specified customer, including a selected tea
+    - [x] `400`, `404`, `422` error handling
 - [ ] Endpoint to cancel a customer's tea subscription
     - [ ] `DELETE /subscriptions/:id`
     - [ ] Remove a specified subscription
