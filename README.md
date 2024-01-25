@@ -38,9 +38,9 @@
     <li>
       <a href="#endpoints">Endpoints</a>
       <ul>
-	<li><a href="#endpoint-1">Subscribe a Customer to a Tea Subscription</a></li>
-	<li><a href="#endpoint-2">Cancel a Customer's Tea Subscription</a></li>
-	<li><a href="#endpoint-3">See all of a Customer's Subscriptions (active and cancelled)</a></li>
+	<li><a href="#customer-subscription-endpoint">Subscribe a Customer to a Tea Subscription</a></li>
+	<li><a href="#cancel-subscription-endpoint">Cancel a Customer's Tea Subscription</a></li>
+	<li><a href="#see-all-customer-subscription-endpoint">See all of a Customer's Subscriptions (active and cancelled)</a></li>
       </ul>
     </li>
     <li><a href="#contributors">Contributors</a></li>
@@ -162,7 +162,7 @@ To get a local copy up and running follow these simple example steps.
 <!-- Endpoints -->
 ## Endpoints
 
-### [Subscribe a Customer to a Tea Subscription](#endpoint-1)
+### [Subscribe a Customer to a Tea Subscription](#customer-subscription-endpoint)
 
 **`POST api/v0/customer_subscriptions`**
 #### Example Request
@@ -214,7 +214,7 @@ Accept: application/json
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-### [Cancel a Customer's Tea Subscription](#endpoint-2)
+### [Cancel a Customer's Tea Subscription](#cancel-subscription-endpoint)
 **`PATCH /api/v0/customer_subscriptions/cancel`**
 #### Example Request
 ```
@@ -261,7 +261,7 @@ Error Handling
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-### [See all of a Customer's Subscriptions (active and cancelled)](#endpoint-3)
+### [See all of a Customer's Subscriptions (active and cancelled)](#see-all-customer-subscription-endpoint)
 **`GET /api/v0/customer_subscriptions`**
 #### Example Request
 ```
