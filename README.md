@@ -13,7 +13,8 @@
   </a>
 </div>
 
-## TC 2
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
   1. [About The Project](#about-the-project)
       - [Built With](#built-with)
       - [Gems](#gems)
@@ -27,37 +28,6 @@
       - [Cancel a Customer's Tea Subscription](#cancel-a-customers-tea-subscription)
       - [See all of a Customer's Subscriptions (active and cancelled)](#see-all-of-a-customers-subscriptions-active-and-cancelled)
   7. [Contributors](#contributors)
-
-<!-- TABLE OF CONTENTS -->
-
-## Table of Contents
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-        <li><a href="#gems">Gems</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#schema">Schema</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#improvements">Improvements</a></li>  
-    <li>
-      <a href="#endpoints">Endpoints</a>
-      <ul>
-        <li><a href="#customer-subscription-endpoint">Subscribe a Customer to a Tea Subscription</a></li>
-        <li><a href="#cancel-subscription-endpoint">Cancel a Customer's Tea Subscription</a></li>
-        <li><a href="#see-all-customer-subscription-endpoint">See all of a Customer's Subscriptions</a></li>
-      </ul>
-    </li>
-    <li><a href="#contributors">Contributors</a></li>
-  </ol>
 
 
 
