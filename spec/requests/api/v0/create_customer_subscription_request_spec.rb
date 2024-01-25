@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Create Customer Subscription Endpoint', type: :request do
-  describe 'POST /api/v0/customer_subscriptions' do
+  describe 'POST /api/v0/customer_subscriptions, with payload customer_id and subscription_id' do
     it 'creates a new customer subscription, GOOD data, 201 status, create /api/v0/customer_subscriptions' do
       customer = create(:customer)
       subscription = create(:subscription)
