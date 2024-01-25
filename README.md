@@ -34,13 +34,13 @@
     </li>
     <li><a href="#schema">Schema</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#improvements">Improvements</a></li>
+    <li><a href="#improvements">Improvements</a></li>  
     <li>
       <a href="#endpoints">Endpoints</a>
       <ul>
-	<li><a href="#customer-subscription-endpoint">Subscribe a Customer to a Tea Subscription</a></li>
-	<li><a href="#cancel-subscription-endpoint">Cancel a Customer's Tea Subscription</a></li>
-	<li><a href="#see-all-customer-subscription-endpoint">See all of a Customer's Subscriptions (active and cancelled)</a></li>
+        <li><a href="#customer-subscription-endpoint">Subscribe a Customer to a Tea Subscription</a></li>
+        <li><a href="#cancel-subscription-endpoint">Cancel a Customer's Tea Subscription</a></li>
+        <li><a href="#see-all-customer-subscription-endpoint">See all of a Customer's Subscriptions</a></li>
       </ul>
     </li>
     <li><a href="#contributors">Contributors</a></li>
