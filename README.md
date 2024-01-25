@@ -17,7 +17,7 @@
 
 <!-- TABLE OF CONTENTS -->
 
-# Table of Contents
+## Table of Contents
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -38,9 +38,9 @@
     <li>
       <a href="#endpoints">Endpoints</a>
       <ul>
-	<li><a href="#endpoint1">Subscribe a Customer to a Tea Subscription</a></li>
-	<li><a href="#endpoint2">Cancel a Customer's Tea Subscription</a></li>
-	<li><a href="#endpoint3">See all of a Customer's Subscriptions (active and cancelled)</a></li>
+	<li><a href="#endpoint-1">Subscribe a Customer to a Tea Subscription</a></li>
+	<li><a href="#endpoint-2">Cancel a Customer's Tea Subscription</a></li>
+	<li><a href="#endpoint-3">See all of a Customer's Subscriptions (active and cancelled)</a></li>
       </ul>
     </li>
     <li><a href="#contributors">Contributors</a></li>
@@ -162,7 +162,8 @@ To get a local copy up and running follow these simple example steps.
 <!-- Endpoints -->
 ## Endpoints
 
-### [Subscribe a Customer to a Tea Subscription](#endpoint1)
+### [Subscribe a Customer to a Tea Subscription](#endpoint-1)
+
 **`POST api/v0/customer_subscriptions`**
 #### Example Request
 ```
@@ -210,7 +211,10 @@ Accept: application/json
   4. `400` Blank/Null Subscription ID
   5. `422` Customer Subscription Already Exists
 
-### [Cancel a Customer's Tea Subscription](#endpoint2)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### [Cancel a Customer's Tea Subscription](#endpoint-2)
 **`PATCH /api/v0/customer_subscriptions/cancel`**
 #### Example Request
 ```
@@ -254,7 +258,10 @@ Error Handling
   1. `404` Invalid Customer Subscription ID
   2. `422` Status Already Cancelled
 
-### [See all of a Customer's Subscriptions (active and cancelled)](#endpoint3)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### [See all of a Customer's Subscriptions (active and cancelled)](#endpoint-3)
 **`GET /api/v0/customer_subscriptions`**
 #### Example Request
 ```
@@ -311,6 +318,7 @@ GET /api/v0/customer_subscriptions?customer_id=1
 #### Error Handling
   1. `404` Invalid Customer ID, Customer cannot be found
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Contributors
@@ -320,7 +328,7 @@ Sam Tran
 [![LinkedIn][linkedin-shield]][linkedin-url-st]
 [![GitHub][github-shield-st]][github-url-st]
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
