@@ -86,9 +86,10 @@ To get a local copy up and running follow these simple example steps.
 ![DB Diagram](images/dbdiagram.png)
 
 ### Design Decisions
-- Subscriptions-Teas, one-to-one relationship over-one-to many
-	1. Simplicity and intuitive
-	2. Data retrieval is also more straight forward
+- Subscriptions-Customers, many to many using the customer_subscriptions join table
+	1. Subscripions are more flexible, preset subscriptions can belong to many customers
+	2. Customers can flexibly subscribe to multiple items
+ 	3. Might be easier later for data queries if they are required
 - Assumption that subscriptions are preset/premade
 	1. JSON response body sent to create a customer subscription only includes customer ID and subscription ID
 	2. If not, response body would have to include parameters required to create a subscription in the same single request
