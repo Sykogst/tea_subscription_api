@@ -17,7 +17,18 @@ class Api::V0::CustomerSubscriptionsController < ApplicationController
   end
 
   def cancel
-    
+    begin
+      customer_subscription = CustomerSubscription.find(params[:customer_subscription_id])
+  
+      if customer_subscription.cancelled?
+        cancel_error_response
+      else
+        customer_subscription.update!(status: :cancelled)
+        render json: CustomerSubscriptionSerializer.new(customer_subscription), status: :ok
+      end
+    rescue ActiveRecord::RecordNotFound
+      cancel_not_found_response
+    end
   end
 
   private
@@ -41,4 +52,11 @@ class Api::V0::CustomerSubscriptionsController < ApplicationController
     .serialize_json, status: :unprocessable_entity
   end
 
+  def cancel_not_found_response
+    render json: ErrorSerializer.new(ErrorMessage.new('Customer Subscription not found.', 404)).serialize_json, status: :not_found
+  end
+
+  def cancel_error_response
+    render json: ErrorSerializer.new(ErrorMessage.new('Status cannot be changed', 422)).serialize_json, status: :unprocessable_entity
+  end
 end
