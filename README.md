@@ -16,8 +16,8 @@
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
+
+# Table of Contents
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -38,14 +38,13 @@
     <li>
       <a href="#endpoints">Endpoints</a>
       <ul>
-	<li><a href="#Subscribe a Customer to a Tea Subscription">PSubscribe a Customer to a Tea Subscription</a></li>
-	<li><a href="#Cancel a Customer's Tea Subscription">PCancel a Customer's Tea Subscription</a></li>
-	<li><a href="#See all of a Customer's Subscriptions (active and cancelled)">See all of a Customer's Subscriptions (active and cancelled)</a></li>
+	<li><a href="#endpoint1">Subscribe a Customer to a Tea Subscription</a></li>
+	<li><a href="#endpoint2">Cancel a Customer's Tea Subscription</a></li>
+	<li><a href="#endpoint3">See all of a Customer's Subscriptions (active and cancelled)</a></li>
       </ul>
     </li>
     <li><a href="#contributors">Contributors</a></li>
   </ol>
-</details>
 
 
 
@@ -163,7 +162,7 @@ To get a local copy up and running follow these simple example steps.
 <!-- Endpoints -->
 ## Endpoints
 
-### Subscribe a Customer to a Tea Subscription
+### [Subscribe a Customer to a Tea Subscription](#endpoint1)
 **`POST api/v0/customer_subscriptions`**
 #### Example Request
 ```
@@ -211,7 +210,7 @@ Accept: application/json
   4. `400` Blank/Null Subscription ID
   5. `422` Customer Subscription Already Exists
 
-### Cancel a Customer's Tea Subscription
+### [Cancel a Customer's Tea Subscription](#endpoint2)
 **`PATCH /api/v0/customer_subscriptions/cancel`**
 #### Example Request
 ```
@@ -255,7 +254,7 @@ Error Handling
   1. `404` Invalid Customer Subscription ID
   2. `422` Status Already Cancelled
 
-### See all of a Customer's Subscriptions (active and cancelled)
+### [See all of a Customer's Subscriptions (active and cancelled)](#endpoint3)
 **`GET /api/v0/customer_subscriptions`**
 #### Example Request
 ```
