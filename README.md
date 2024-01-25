@@ -35,10 +35,12 @@
     <li><a href="#schema">Schema</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#improvements">Improvements</a></li>
-    <li><a href="#endpoints">Endpoints</a>
-        <li><a href="#Subscribe a Customer to a Tea Subscription">POST api/v0/customer_subscriptions</a></li>
-        <li><a href="#Cancel a Customer's Tea Subscription">PATCH /api/v0/customer_subscriptions/cancel</a></li>
-        <li><a href="#See all of a Customer's Subscriptions (active and cancelled)">GET /api/v0/customer_subscriptions</a></li>
+    <li>
+      <a href="#endpoints">Endpoints</a>
+      <ul>
+	<li><a href="#Subscribe a Customer to a Tea Subscription">POST api/v0/customer_subscriptions</a></li>
+	<li><a href="#Cancel a Customer's Tea Subscription">PATCH /api/v0/customer_subscriptions/cancel</a></li>
+	<li><a href="#See all of a Customer's Subscriptions (active and cancelled)">GET /api/v0/customer_subscriptions</a></li>
       </ul>
     </li>
     <li><a href="#contributors">Contributors</a></li>
