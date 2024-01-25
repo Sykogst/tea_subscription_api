@@ -11,7 +11,7 @@ describe 'Create Customer Subscription Endpoint', type: :request do
       }
       headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
   
-      post '/api/v0/customer_subscriptions', headers: headers, params: JSON.generate(customer_subscription: customer_subscription_payload)
+      post '/api/v0/customer_subscriptions', headers: headers, params: JSON.generate(customer_subscription_payload)
       created_customer_subscription = CustomerSubscription.last
   
       expect(response).to be_successful
@@ -26,16 +26,16 @@ describe 'Create Customer Subscription Endpoint', type: :request do
         customer_id: 1,
         subscription_id: subscription.id
       })
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
     
-      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
+      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription_params)
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
     
       data = JSON.parse(response.body, symbolize_names: true)
       
       expect(data[:errors]).to be_a(Array)
-      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:status]).to eq('404')
       expect(data[:errors].first[:title]).to eq("Validation failed: Customer must exist, Customer can't be blank")
     end
     
@@ -45,16 +45,16 @@ describe 'Create Customer Subscription Endpoint', type: :request do
         customer_id: customer.id,
         subscription_id: 1
       })
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
     
-      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
+      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription_params)
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
     
       data = JSON.parse(response.body, symbolize_names: true)
       
       expect(data[:errors]).to be_a(Array)
-      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:status]).to eq('404')
       expect(data[:errors].first[:title]).to eq("Validation failed: Subscription must exist, Subscription can't be blank")
     end
     
@@ -63,9 +63,9 @@ describe 'Create Customer Subscription Endpoint', type: :request do
       customer_subscription_params = ({
         subscription_id: subscription.id
       })
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
     
-      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
+      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription_params)
     
       expect(response).to_not be_successful
       expect(response.status).to eq(400)
@@ -73,7 +73,7 @@ describe 'Create Customer Subscription Endpoint', type: :request do
       data = JSON.parse(response.body, symbolize_names: true)
       
       expect(data[:errors]).to be_a(Array)
-      expect(data[:errors].first[:status]).to eq("400")
+      expect(data[:errors].first[:status]).to eq('400')
       expect(data[:errors].first[:title]).to eq("Validation failed: Customer must exist, Customer can't be blank")
     end
     
@@ -83,9 +83,9 @@ describe 'Create Customer Subscription Endpoint', type: :request do
         customer_id: customer.id,
         subscription_id: nil
       })
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
     
-      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
+      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription_params)
     
       expect(response).to_not be_successful
       expect(response.status).to eq(400)
@@ -93,7 +93,7 @@ describe 'Create Customer Subscription Endpoint', type: :request do
       data = JSON.parse(response.body, symbolize_names: true)
       
       expect(data[:errors]).to be_a(Array)
-      expect(data[:errors].first[:status]).to eq("400")
+      expect(data[:errors].first[:status]).to eq('400')
       expect(data[:errors].first[:title]).to eq("Validation failed: Subscription must exist, Subscription can't be blank")
     end
     
@@ -104,10 +104,10 @@ describe 'Create Customer Subscription Endpoint', type: :request do
         customer_id: customer.id,
         subscription_id: subscription.id
       })
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
     
-      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
-      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
+      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription_params)
+      post "/api/v0/customer_subscriptions", headers: headers, params: JSON.generate(customer_subscription_params)
     
       expect(response).to_not be_successful
       expect(response.status).to eq(422)
@@ -115,7 +115,7 @@ describe 'Create Customer Subscription Endpoint', type: :request do
       data = JSON.parse(response.body, symbolize_names: true)
       
       expect(data[:errors]).to be_a(Array)
-      expect(data[:errors].first[:status]).to eq("422")
+      expect(data[:errors].first[:status]).to eq('422')
       expect(data[:errors].first[:title]).to eq("Validation failed: Customer subscription association between customer and subscription with customer_id=#{customer.id} and subscription_id=#{subscription.id} already exists")
     end
     

@@ -10,4 +10,8 @@ RSpec.describe CustomerSubscription, type: :model do
     it { should validate_presence_of(:customer) }
     it { should validate_presence_of(:subscription) }
   end
+
+  describe 'enums' do
+    it { should define_enum_for(:status).with_values(active: 0, cancelled: 1) }
+  end
 end

@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v0 do
-      resources :customer_subscriptions, only: [:create]
+      resources :customer_subscriptions, only: [:create] do
+        patch 'cancel', on: :collection
+      end
     end
   end
   

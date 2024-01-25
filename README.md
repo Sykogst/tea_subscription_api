@@ -105,6 +105,16 @@ To get a local copy up and running follow these simple example steps.
 - Subscriptions-Teas, one-to-one relationship over-one-to many
 	1. Simplicity and intuitive
 	2. Data retrieval is also more straight forward
+- Assumption that subscriptions are preset/premade
+	1. JSON response body sent to create a customer subscription only includes customer ID and subscription ID
+	2. If not, response body would have to include parameters required to create a subscription in the same single request
+- Made a decision to add a enum status column into the  `customer_subscriptions` table
+	1. Default is set to 0, corresponding to active
+	2. Toggle of this enum to cancelled using and endpoint
+- Routes for cancelling subscription, `collection`
+	1. Used for the `PATCH` request that toggles a users subscription status to cancelled for a specific customer_subscription ID
+	2. It is on a joins record so acts on all, just the single record
+	3. id is sent through json payload
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,11 +125,14 @@ To get a local copy up and running follow these simple example steps.
 
 - [x] Endpoint to subscribe a customer to a tea subscription
     - [x] `POST /subscriptions`
+    - [x] Customer ID and Subscription ID, sent through json payload body NOT query params
     - [x] Create a new subscription for a specified customer, including a selected tea
     - [x] `400`, `404`, `422` error handling
-- [ ] Endpoint to cancel a customer's tea subscription
-    - [ ] `DELETE /subscriptions/:id`
-    - [ ] Remove a specified subscription
+- [x] Endpoint to cancel a customer's tea subscription
+    - [x] `DELETE /subscriptions/:id`
+    - [x] Customer Subscription ID, sent through json payload body NOT query params
+    - [x] Remove a specified subscription
+    - [x] `404`, `422` error handling
 - [ ] Endpoint to see all customer's subscriptions
     - [ ] `GET /customers/:customer_id/subscriptions`
     - [ ] Retrieve all subscriptions for a specified customer (active and cancelled) 
@@ -137,10 +150,10 @@ To get a local copy up and running follow these simple example steps.
 ## Endpoints
 
 ### Subscribe a Customer to a Tea Subscription
-* **`POST api/v0/subscriptions`**
+* **`POST api/v0/customer_subscriptions`**
   - Example Request:
     ```
-    POST /api/v0/subscriptions
+    POST /api/v0/customer_subscriptions
     Content-Type: application/json
     Accept: application/json
 
@@ -157,7 +170,8 @@ To get a local copy up and running follow these simple example steps.
             "type": "customer_subscription",
             "attributes": {
                 "customer_id": 1,
-                "subscription_id": 1
+                "subscription_id": 1,
+                "status": "active"
             },
             "relationships": {
                 "customer": {
@@ -184,20 +198,48 @@ To get a local copy up and running follow these simple example steps.
   5. `422` Customer Subscription Already Exists
 
 ### Cancel a Customer's Tea Subscription
-* **DELETE /api/v0/subscriptions/:id**
+* **`PATCH /api/v0/customer_subscriptions/cancel`**
   - Example Request:
     ```
-    DELETE /api/v0/subscriptions/:id
+    PATCH /api/v0/customer_subscriptions/cancel
     Content-Type: application/json
     Accept: application/json
 
     {
-      "id": 1,
+      "customer_subscription_id": 1,
     }
     ```
   - Example Response:
     ```json
+    {
+        "data": {
+            "id": "1",
+            "type": "customer_subscription",
+            "attributes": {
+                "customer_id": 1,
+                "subscription_id": 1,
+                "status": "cancelled"
+            },
+            "relationships": {
+                "customer": {
+                    "data": {
+                        "id": "1",
+                        "type": "customer"
+                    }
+                },
+                "subscription": {
+                    "data": {
+                        "id": "1",
+                        "type": "subscription"
+                    }
+                }
+            }
+        }
+    }
     ```
+    - Error Handling
+    1. `404` Invalid Customer Subscription ID
+    2. `422` Status Already Cancelled
 
 ### See all of a Customer's Subscriptions (active and cancelled)
 * **GET /api/v0/customers/:customer_id/subscriptions**

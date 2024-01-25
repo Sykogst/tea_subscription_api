@@ -4,4 +4,6 @@ class CustomerSubscription < ApplicationRecord
 
   validates :customer, :subscription, presence: true
   validates_uniqueness_of :customer_id, scope: :subscription_id
+
+  enum status: { active: 0, cancelled: 1 }
 end
