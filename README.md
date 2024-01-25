@@ -35,7 +35,12 @@
     <li><a href="#schema">Schema</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#improvements">Improvements</a></li>
-    <li><a href="#endpoints">Endpoints</a></li>
+    <li><a href="#endpoints">Endpoints</a>
+        <li><a href="#Subscribe a Customer to a Tea Subscription">POST api/v0/customer_subscriptions</a></li>
+        <li><a href="#Cancel a Customer's Tea Subscription">PATCH /api/v0/customer_subscriptions/cancel</a></li>
+        <li><a href="#See all of a Customer's Subscriptions (active and cancelled)">GET /api/v0/customer_subscriptions</a></li>
+      </ul>
+    </li>
     <li><a href="#contributors">Contributors</a></li>
   </ol>
 </details>
@@ -158,7 +163,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Subscribe a Customer to a Tea Subscription
 **`POST api/v0/customer_subscriptions`**
-Example Request:
+#### Example Request
 ```
 POST /api/v0/customer_subscriptions
 Content-Type: application/json
@@ -169,7 +174,7 @@ Accept: application/json
 "subscription_id": 1
 }
 ```
-Example Response:
+#### Example Response
 ```json
 {
 "data": {
@@ -197,7 +202,7 @@ Example Response:
 }
 }
 ```
-Error Handling
+#### Error Handling
   1. `404` Invalid Customer ID, Customer cannot be found
   2. `404` Invalid Subscription ID, Subscription cannot be found
   3. `400` Blank/Null Customer ID
@@ -206,7 +211,7 @@ Error Handling
 
 ### Cancel a Customer's Tea Subscription
 **`PATCH /api/v0/customer_subscriptions/cancel`**
-Example Request:
+#### Example Request
 ```
 PATCH /api/v0/customer_subscriptions/cancel
 Content-Type: application/json
@@ -216,7 +221,7 @@ Accept: application/json
 "customer_subscription_id": 1,
 }
 ```
-Example Response:
+#### Example Response
 ```json
 {
 "data": {
@@ -250,11 +255,11 @@ Error Handling
 
 ### See all of a Customer's Subscriptions (active and cancelled)
 **`GET /api/v0/customer_subscriptions`**
-Example Request:
+#### Example Request
 ```
 GET /api/v0/customer_subscriptions?customer_id=1
 ```
-Example Response:
+#### Example Response
 ```json
 {
 "customer_id": 1,
@@ -302,7 +307,7 @@ Example Response:
 }
 }
 ```
-Error Handling
+#### Error Handling
   1. `404` Invalid Customer ID, Customer cannot be found
 
 
@@ -321,7 +326,7 @@ Sam Tran
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Sygogst/tea_subscription_api.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Sykogst/tea_subscription_api.svg?style=for-the-badge
 [contributors-url]: https://github.com/tea_subscription_api/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Sykogst/tea_subscription_api.svg?style=for-the-badge
 [forks-url]: https://github.com/tea_subscription_api/network/members
