@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Cancel Customer Subscription Endpoint', type: :request do
-  describe 'PATCH /api/v0/customer_subscriptions/cancel' do
+  describe 'PATCH /api/v0/customer_subscriptions/cancel, with payload customer_subscription_id' do
     it 'cancels an existing customer subscription, 200 status' do
       customer_subscription = create(:customer_subscription)
       payload = { customer_subscription_id: customer_subscription.id }
