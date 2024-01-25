@@ -131,7 +131,7 @@ To get a local copy up and running follow these simple example steps.
     - [x] Customer Subscription ID, sent through json payload body NOT query params
     - [x] Remove a specified subscription
     - [x] `404`, `422` error handling
-- [ ] Endpoint to see all customer's subscriptions
+- [x] Endpoint to see all customer's subscriptions
     - [x] `GET /customers_subscriptions`
     - [x] Customer Subscription ID, sent through query params
     - [x] Retrieve all subscriptions for a specified customer (active and cancelled) 
@@ -206,8 +206,8 @@ To get a local copy up and running follow these simple example steps.
   5. `422` Customer Subscription Already Exists
 
 ### Cancel a Customer's Tea Subscription
-* **`PATCH /api/v0/customer_subscriptions/cancel`**
-  - Example Request:
+**`PATCH /api/v0/customer_subscriptions/cancel`**
+Example Request:
     ```
     PATCH /api/v0/customer_subscriptions/cancel
     Content-Type: application/json
@@ -217,7 +217,7 @@ To get a local copy up and running follow these simple example steps.
       "customer_subscription_id": 1,
     }
     ```
-  - Example Response:
+Example Response:
     ```json
     {
         "data": {
@@ -245,17 +245,17 @@ To get a local copy up and running follow these simple example steps.
         }
     }
     ```
-    - Error Handling
-    1. `404` Invalid Customer Subscription ID
-    2. `422` Status Already Cancelled
+Error Handling
+  1. `404` Invalid Customer Subscription ID
+  2. `422` Status Already Cancelled
 
 ### See all of a Customer's Subscriptions (active and cancelled)
-* **`GET /api/v0/customer_subscriptions`**
-  - Example Request:
+**`GET /api/v0/customer_subscriptions`**
+Example Request:
     ```
     GET /api/v0/customer_subscriptions?customer_id=1
     ```
-  - Example Response:
+Example Response:
     ```json
     {
         "customer_id": 1,
@@ -303,8 +303,8 @@ To get a local copy up and running follow these simple example steps.
         }
     }
     ```
-    - Error Handling
-    1. `404` Invalid Customer ID, Customer cannot be found
+Error Handling
+  1. `404` Invalid Customer ID, Customer cannot be found
 
 
 
@@ -322,9 +322,9 @@ Sam Tran
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/tea_subscription_api.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Sygogst/tea_subscription_api.svg?style=for-the-badge
 [contributors-url]: https://github.com/tea_subscription_api/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/tea_subscription_api.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/Sykogst/tea_subscription_api.svg?style=for-the-badge
 [forks-url]: https://github.com/tea_subscription_api/network/members
 [stars-shield]: https://img.shields.io/github/stars/tea_subscription_api.svg?style=for-the-badge
 [stars-url]: https://github.com/tea_subscription_api/stargazers
