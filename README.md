@@ -167,7 +167,8 @@ To get a local copy up and running follow these simple example steps.
             "type": "customer_subscription",
             "attributes": {
                 "customer_id": 1,
-                "subscription_id": 1
+                "subscription_id": 1,
+                "status": "active"
             },
             "relationships": {
                 "customer": {
@@ -207,7 +208,35 @@ To get a local copy up and running follow these simple example steps.
     ```
   - Example Response:
     ```json
+    {
+        "data": {
+            "id": "1",
+            "type": "customer_subscription",
+            "attributes": {
+                "customer_id": 1,
+                "subscription_id": 1,
+                "status": "cancelled"
+            },
+            "relationships": {
+                "customer": {
+                    "data": {
+                        "id": "1",
+                        "type": "customer"
+                    }
+                },
+                "subscription": {
+                    "data": {
+                        "id": "1",
+                        "type": "subscription"
+                    }
+                }
+            }
+        }
+    }
     ```
+    - Error Handling
+    1. `404` Invalid Customer Subscription ID
+    2. `422` Status Already Cancelled
 
 ### See all of a Customer's Subscriptions (active and cancelled)
 * **GET /api/v0/customers/:customer_id/subscriptions**
