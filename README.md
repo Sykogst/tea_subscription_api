@@ -13,7 +13,20 @@
   </a>
 </div>
 
-
+## TC 2
+  1. [About The Project](#about-the-project)
+      - [Built With](#built-with)
+      - [Gems](#gems)
+  2. [Getting Started](#getting-started)
+      - [Installation](#installation)
+  3. [Schema](#schema)
+  4. [Roadmap](#roadmap)
+  5. [Improvements](#improvements)
+  6. [Endpoints](#endpoints)
+      - [Subscribe a Customer to a Tea Subscription](#subscribe-a-customer-to-a-tea-subscription)
+      - [Cancel a Customer's Tea Subscription](#cancel-a-customers-tea-subscription)
+      - [See all of a Customer's Subscriptions (active and cancelled)](#see-all-of-a-customers-subscriptions-active-and-cancelled)
+  7. [Contributors](#contributors)
 
 <!-- TABLE OF CONTENTS -->
 
