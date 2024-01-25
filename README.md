@@ -125,11 +125,14 @@ To get a local copy up and running follow these simple example steps.
 
 - [x] Endpoint to subscribe a customer to a tea subscription
     - [x] `POST /subscriptions`
+    - [x] Customer ID and Subscription ID, sent through json payload body NOT query params
     - [x] Create a new subscription for a specified customer, including a selected tea
     - [x] `400`, `404`, `422` error handling
-- [ ] Endpoint to cancel a customer's tea subscription
-    - [ ] `DELETE /subscriptions/:id`
-    - [ ] Remove a specified subscription
+- [x] Endpoint to cancel a customer's tea subscription
+    - [x] `DELETE /subscriptions/:id`
+    - [x] Customer Subscription ID, sent through json payload body NOT query params
+    - [x] Remove a specified subscription
+    - [x] `404`, `422` error handling
 - [ ] Endpoint to see all customer's subscriptions
     - [ ] `GET /customers/:customer_id/subscriptions`
     - [ ] Retrieve all subscriptions for a specified customer (active and cancelled) 
