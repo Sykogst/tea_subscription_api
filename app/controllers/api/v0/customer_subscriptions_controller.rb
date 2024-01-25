@@ -1,17 +1,5 @@
 class Api::V0::CustomerSubscriptionsController < ApplicationController
-  # def create
-  #   customer_subscription = CustomerSubscription.create!(customer_subscription_params)
-  #   render json: CustomerSubscriptionSerializer.new(customer_subscription), status: :created
-  # end
-
   def create
-    # begin
-    #   customer_subscription = CustomerSubscription.create!(customer_subscription_params)
-    #   render json: CustomerSubscriptionSerializer.new(customer_subscription), status: :created
-    # rescue ActiveRecord::RecordInvalid => exception
-    #   handle_create_error(exception)
-    # end
-
     begin
       customer_subscription = CustomerSubscription.create!(customer_subscription_params)
       render json: CustomerSubscriptionSerializer.new(customer_subscription), status: 201
@@ -26,6 +14,10 @@ class Api::V0::CustomerSubscriptionsController < ApplicationController
         not_found_response(exception)
       end
     end
+  end
+
+  def cancel
+    
   end
 
   private
