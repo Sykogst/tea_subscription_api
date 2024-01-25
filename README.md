@@ -55,7 +55,6 @@ This is is a Rails API for a Tea Subscription Service providing various endpoint
 ### Gems
 
 ### Production
-<!-- * [![faraday][gem-faraday]][gem-faraday-url] -->
 * [![jsonapi-serializer][gem-jsonapi-serializer]][gem-jsonapi-serializer-url]
 
 ### Testing
@@ -65,9 +64,6 @@ This is is a Rails API for a Tea Subscription Service providing various endpoint
 * [![faker][gem-faker]][gem-faker-url]
 * [![pry][gem-pry]][gem-pry-url]
 * [![shoulda-matchers][gem-shoulda-matchers]][gem-shoulda-matchers-url]
-* [![capybara][gem-capybara]][gem-capybara-url]
-* [![webmock][gem-webmock]][gem-webmock-url]
-* [![vcr][gem-vcr]][gem-vcr-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,6 +111,8 @@ To get a local copy up and running follow these simple example steps.
 	1. Used for the `PATCH` request that toggles a users subscription status to cancelled for a specific customer_subscription ID
 	2. It is on a joins record so acts on all, just the single record
 	3. id is sent through json payload
+- To keep RESTful routes, sending customer ID as a query param for the `GET` request 
+	1. Also added customer_id to json response for usability
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -129,24 +127,34 @@ To get a local copy up and running follow these simple example steps.
     - [x] Create a new subscription for a specified customer, including a selected tea
     - [x] `400`, `404`, `422` error handling
 - [x] Endpoint to cancel a customer's tea subscription
-    - [x] `DELETE /subscriptions/:id`
+    - [x] `PATCH /customer_subscriptions/cancel`
     - [x] Customer Subscription ID, sent through json payload body NOT query params
     - [x] Remove a specified subscription
     - [x] `404`, `422` error handling
 - [ ] Endpoint to see all customer's subscriptions
-    - [ ] `GET /customers/:customer_id/subscriptions`
-    - [ ] Retrieve all subscriptions for a specified customer (active and cancelled) 
+    - [x] `GET /customers_subscriptions`
+    - [x] Customer Subscription ID, sent through query params
+    - [x] Retrieve all subscriptions for a specified customer (active and cancelled) 
+    - [x] `404` error handling
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 <!-- Improvements -->
 ## Improvements
-- [ ] POSSIBLE IMPROVEMENTS
+- [ ] Clean up JSON response formatting in the `GET /customers_subscriptions` endpoint to more closely follow JSON convnetions
+- [ ] Add more endpoints, just a few ideas
+  - [ ] such as a PATCH to make a subscription active
+  - [ ] ALL current active subscriptions
+  - [ ] DELETE a subscription or customer subscription entirely
+- [ ] Consume external API for tea information, [Spoonacular API](https://spoonacular.com/food-api/docs)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
+<!-- Endpoints -->
 ## Endpoints
 
 ### Subscribe a Customer to a Tea Subscription
@@ -191,8 +199,8 @@ To get a local copy up and running follow these simple example steps.
     }
     ```
   - Error Handling
-  1. `404` Invalid Customer ID
-  2. `404` Invalid Subscription ID
+  1. `404` Invalid Customer ID, Customer cannot be found
+  2. `404` Invalid Subscription ID, Subscription cannot be found
   3. `400` Blank/Null Customer ID
   4. `400` Blank/Null Subscription ID
   5. `422` Customer Subscription Already Exists
@@ -242,29 +250,61 @@ To get a local copy up and running follow these simple example steps.
     2. `422` Status Already Cancelled
 
 ### See all of a Customer's Subscriptions (active and cancelled)
-* **GET /api/v0/customers/:customer_id/subscriptions**
+* **`GET /api/v0/customer_subscriptions`**
   - Example Request:
     ```
-    GET /api/v0/customers/:customer_id/subscriptions
-    Content-Type: application/json
-    Accept: application/json
-
-    {
-      "id": 1,
-    }
+    GET /api/v0/customer_subscriptions?customer_id=1
     ```
   - Example Response:
     ```json
     {
-        "data": {
-            "type": "users",
-            "id": "1",
-            "attributes": {
-                "subscriptions": [],
-            }
+        "customer_id": 1,
+        "subscriptions": {
+            "data": [
+                {
+                    "id": "1",
+                    "type": "subscription",
+                    "attributes": {
+                        "id": 1,
+                        "title": "Monthly Green Tea Box",
+                        "price": "19.99",
+                        "status": "active",
+                        "frequency": "monthly"
+                    },
+                    "relationships": {
+                        "tea": {
+                            "data": {
+                                "id": "1",
+                                "type": "tea"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "2",
+                    "type": "subscription",
+                    "attributes": {
+                        "id": 2,
+                        "title": "Weekly Black Tea Special",
+                        "price": "24.99",
+                        "status": "cancelled",
+                        "frequency": "weekly"
+                    },
+                    "relationships": {
+                        "tea": {
+                            "data": {
+                                "id": "2",
+                                "type": "tea"
+                            }
+                        }
+                    }
+                }
+            ]
         }
     }
     ```
+    - Error Handling
+    1. `404` Invalid Customer ID, Customer cannot be found
 
 
 
