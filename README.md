@@ -78,7 +78,6 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/Sykogst/tea_subscription_api.git
    ```
-    ```
 2. Gem Bundle
    ```sh
     bundle
@@ -158,47 +157,47 @@ To get a local copy up and running follow these simple example steps.
 ## Endpoints
 
 ### Subscribe a Customer to a Tea Subscription
-* **`POST api/v0/customer_subscriptions`**
-  - Example Request:
-    ```
-    POST /api/v0/customer_subscriptions
-    Content-Type: application/json
-    Accept: application/json
+**`POST api/v0/customer_subscriptions`**
+Example Request:
+```
+POST /api/v0/customer_subscriptions
+Content-Type: application/json
+Accept: application/json
 
-    {
-        "customer_id": 1,
-        "subscription_id": 1
+{
+"customer_id": 1,
+"subscription_id": 1
+}
+```
+Example Response:
+```json
+{
+"data": {
+    "id": "1",
+    "type": "customer_subscription",
+    "attributes": {
+	"customer_id": 1,
+	"subscription_id": 1,
+	"status": "active"
+    },
+    "relationships": {
+	"customer": {
+	    "data": {
+		"id": "1",
+		"type": "customer"
+	    }
+	},
+	"subscription": {
+	    "data": {
+		"id": "1",
+		"type": "subscription"
+	    }
+	}
     }
-    ```
-  - Example Response:
-    ```json
-    {
-        "data": {
-            "id": "1",
-            "type": "customer_subscription",
-            "attributes": {
-                "customer_id": 1,
-                "subscription_id": 1,
-                "status": "active"
-            },
-            "relationships": {
-                "customer": {
-                    "data": {
-                        "id": "1",
-                        "type": "customer"
-                    }
-                },
-                "subscription": {
-                    "data": {
-                        "id": "1",
-                        "type": "subscription"
-                    }
-                }
-            }
-        }
-    }
-    ```
-  - Error Handling
+}
+}
+```
+Error Handling
   1. `404` Invalid Customer ID, Customer cannot be found
   2. `404` Invalid Subscription ID, Subscription cannot be found
   3. `400` Blank/Null Customer ID
@@ -208,43 +207,43 @@ To get a local copy up and running follow these simple example steps.
 ### Cancel a Customer's Tea Subscription
 **`PATCH /api/v0/customer_subscriptions/cancel`**
 Example Request:
-    ```
-    PATCH /api/v0/customer_subscriptions/cancel
-    Content-Type: application/json
-    Accept: application/json
+```
+PATCH /api/v0/customer_subscriptions/cancel
+Content-Type: application/json
+Accept: application/json
 
-    {
-      "customer_subscription_id": 1,
-    }
-    ```
+{
+"customer_subscription_id": 1,
+}
+```
 Example Response:
-    ```json
-    {
-        "data": {
-            "id": "1",
-            "type": "customer_subscription",
-            "attributes": {
-                "customer_id": 1,
-                "subscription_id": 1,
-                "status": "cancelled"
-            },
-            "relationships": {
-                "customer": {
-                    "data": {
-                        "id": "1",
-                        "type": "customer"
-                    }
-                },
-                "subscription": {
-                    "data": {
-                        "id": "1",
-                        "type": "subscription"
-                    }
-                }
-            }
-        }
+```json
+{
+"data": {
+    "id": "1",
+    "type": "customer_subscription",
+    "attributes": {
+	"customer_id": 1,
+	"subscription_id": 1,
+	"status": "cancelled"
+    },
+    "relationships": {
+	"customer": {
+	    "data": {
+		"id": "1",
+		"type": "customer"
+	    }
+	},
+	"subscription": {
+	    "data": {
+		"id": "1",
+		"type": "subscription"
+	    }
+	}
     }
-    ```
+}
+}
+```
 Error Handling
   1. `404` Invalid Customer Subscription ID
   2. `422` Status Already Cancelled
@@ -252,57 +251,57 @@ Error Handling
 ### See all of a Customer's Subscriptions (active and cancelled)
 **`GET /api/v0/customer_subscriptions`**
 Example Request:
-    ```
-    GET /api/v0/customer_subscriptions?customer_id=1
-    ```
+```
+GET /api/v0/customer_subscriptions?customer_id=1
+```
 Example Response:
-    ```json
-    {
-        "customer_id": 1,
-        "subscriptions": {
-            "data": [
-                {
-                    "id": "1",
-                    "type": "subscription",
-                    "attributes": {
-                        "id": 1,
-                        "title": "Monthly Green Tea Box",
-                        "price": "19.99",
-                        "status": "active",
-                        "frequency": "monthly"
-                    },
-                    "relationships": {
-                        "tea": {
-                            "data": {
-                                "id": "1",
-                                "type": "tea"
-                            }
-                        }
-                    }
-                },
-                {
-                    "id": "2",
-                    "type": "subscription",
-                    "attributes": {
-                        "id": 2,
-                        "title": "Weekly Black Tea Special",
-                        "price": "24.99",
-                        "status": "cancelled",
-                        "frequency": "weekly"
-                    },
-                    "relationships": {
-                        "tea": {
-                            "data": {
-                                "id": "2",
-                                "type": "tea"
-                            }
-                        }
-                    }
-                }
-            ]
-        }
-    }
-    ```
+```json
+{
+"customer_id": 1,
+"subscriptions": {
+    "data": [
+	{
+	    "id": "1",
+	    "type": "subscription",
+	    "attributes": {
+		"id": 1,
+		"title": "Monthly Green Tea Box",
+		"price": "19.99",
+		"status": "active",
+		"frequency": "monthly"
+	    },
+	    "relationships": {
+		"tea": {
+		    "data": {
+			"id": "1",
+			"type": "tea"
+		    }
+		}
+	    }
+	},
+	{
+	    "id": "2",
+	    "type": "subscription",
+	    "attributes": {
+		"id": 2,
+		"title": "Weekly Black Tea Special",
+		"price": "24.99",
+		"status": "cancelled",
+		"frequency": "weekly"
+	    },
+	    "relationships": {
+		"tea": {
+		    "data": {
+			"id": "2",
+			"type": "tea"
+		    }
+		}
+	    }
+	}
+    ]
+}
+}
+```
 Error Handling
   1. `404` Invalid Customer ID, Customer cannot be found
 
