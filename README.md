@@ -121,7 +121,7 @@ To get a local copy up and running follow these simple example steps.
     - [x] Remove a specified subscription
     - [x] `404`, `422` error handling
 - [x] Endpoint to see all customer's subscriptions
-    - [x] `GET /customers_subscriptions`
+    - [x] `GET /customer_subscriptions`
     - [x] Customer Subscription ID, sent through query params
     - [x] Retrieve all subscriptions for a specified customer (active and cancelled) 
     - [x] `404` error handling
