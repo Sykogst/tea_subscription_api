@@ -80,6 +80,10 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    bundle exec rspec
    ```
+2. RSpec Coverage Report
+   ```sh
+   open coverage/index.html
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
