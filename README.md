@@ -75,6 +75,11 @@ To get a local copy up and running follow these simple example steps.
    ```sh
     rails db:{drop,create,migrate,seed}
    ```
+### Testing
+1. Run test suite
+   ```sh
+   bundle exec rspec
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
