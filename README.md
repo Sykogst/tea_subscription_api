@@ -110,6 +110,8 @@ To get a local copy up and running follow these simple example steps.
 <!-- ROADMAP -->
 ## Roadmap
 
+- [x] Design schema and set up database, base structure
+    - [x] Add status attribute to `customer_subscriptions` joins table
 - [x] Endpoint to subscribe a customer to a tea subscription
     - [x] `POST /subscriptions`
     - [x] Customer ID and Subscription ID, sent through json payload body NOT query params
